@@ -25,6 +25,9 @@ app.use(express.static(__dirname));
 app.get('/*', function (req, res) {
     var datePath = url.parse(req.url).pathname.substr(1).replace(/%20/g, " ")
 
+    returnDateMS = null;
+    returnDateStr = null; 
+    
     if (datePath.length == 0) {
         console.log('home')
         return;
@@ -46,6 +49,4 @@ app.get('/*', function (req, res) {
 
 
 app.listen(process.env.PORT || 3000 || 8080)
-//app.listen(3000, function () {
-//  console.log('Example app listening on port 8080!')
-//})
+
